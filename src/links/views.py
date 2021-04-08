@@ -7,6 +7,8 @@ import smtplib
 import time
 # Create your views here.
 
+# Neven
+
 def home_view(request):
     no_discounted = 0
     error = None
@@ -47,10 +49,14 @@ def home_view(request):
 
     return render(request, 'links/main.html', context)
 
+#Neven
+
 class LinkDeleteView(DeleteView):
     model = Link
     template_name = 'links/confirm_del.html'
     success_url = reverse_lazy('home')
+
+#Karlo
 
 def update_prices(request):
     qs = Link.objects.all()
@@ -58,6 +64,8 @@ def update_prices(request):
         link.save()
     return redirect('home')
 
+
+#Karlo
 
 def send_mail():
         server = smtplib.SMTP('smtp.gmail.com', 587)

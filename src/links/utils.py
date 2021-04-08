@@ -2,6 +2,9 @@ import requests
 import lxml
 from bs4 import BeautifulSoup
 
+
+#Karlo
+
 def get_link_data(url):
     headers = {
         "user-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36",
@@ -10,6 +13,7 @@ def get_link_data(url):
     r = requests.get(url, headers=headers)
 
     soup = BeautifulSoup(r.text, "lxml")
+
     #print(soup.prettify())
 
     name = soup.select_one(selector="#productTitle").getText()
@@ -19,5 +23,7 @@ def get_link_data(url):
     price = soup.select_one(selector="#priceblock_ourprice").getText()
     price = price[1:]
 
+
+       ## //*[@id="ivLargeImage"]/img
     return name, price
 

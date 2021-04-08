@@ -3,6 +3,8 @@ from .utils import get_link_data
 
 # Create your models here.
 
+#Neven
+
 class Link(models.Model):
     name = models.CharField(max_length=220, blank=True)
     url = models.URLField()
